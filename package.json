@@ -1,0 +1,44 @@
+{
+  "name": "appkit-news-ext",
+  "version": "0.0.5",
+  "description": "News",
+  "engines": {
+    "appkit": "^1.0.0"
+  },
+  "appkit": {
+    "modules": [
+      {
+        "id": "appkit-news",
+        "name": "Recent News",
+        "schema": "schema.json",
+        "content": {
+          "edit": {
+            "articles": {
+              "name": "Articles",
+              "data": "articles"
+            },
+            "categories": {
+              "name": "Categories",
+              "data": "categories"
+            }
+          }
+        },
+        "ui": {
+          "initialPage":  "start",
+          "pages": {
+            "start": "ui/pages/start.js"
+          },
+          "module": "ui/module.js"
+        }
+      }
+    ],
+    "components": [],
+    "libs": []
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+  }
+}

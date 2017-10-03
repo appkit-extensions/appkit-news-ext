@@ -1,0 +1,108 @@
+﻿{
+    "options": {
+        "fields": {
+            "title": {
+                "label": "Title",
+                "description": "Title for this module",
+                "group": "General",
+                "heading": "",
+                "private": "",
+                "type": "String"
+            },
+            "enable-ui-override": {
+                "label": "Enable UI Override",
+                "description": "Override the default UI for this module",
+                "group": "Advanced",
+                "heading": "",
+                "private": "",
+                "type": "YesNo"
+            },
+            "enable-xml-editing": {
+                "label": "Enable XML Editing",
+                "description": "Show XML to allow advanced editing",
+                "group": "Advanced",
+                "heading": "",
+                "private": "",
+                "type": "YesNo"
+            }
+        },
+        "groups": [ "General", "Advanced" ]
+    },
+    "data": {
+        "articles": {
+            "child": "article",
+            "name": "Article",
+            "thumb": "image",
+            "title": "title",
+            "description": "summary",
+            "tag":  "category",
+            "extra": "link",
+            "fields": [
+                {
+                    "key": "title",
+                    "type": "string",
+                    "format": "single-line",
+                    "caption": "Title",
+                    "minLength": 2,
+                    "maxLength": 200,
+                    "required": true
+                },
+                {
+                    "key": "category",
+                    "type": "select",
+                    "bind": "categories",
+                    "caption": "Category",
+                    "required": true
+                },
+                {
+                    "key": "summary",
+                    "type": "string",
+                    "format": "multi-line",
+                    "caption": "Summary",
+                    "required": true
+                },
+                {
+                    "key": "link",
+                    "type": "string",
+                    "format": "uri",
+                    "caption": "Article URL",
+                    "pattern": "^(https?|tel|sms|mail|itms)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]$",
+                    "required": true,
+                    "placeholder": "http://some.server.com"
+                },
+                {
+                    "key": "image",
+                    "type": "fileref",
+                    "format": "jpg, png, jpeg",
+                    "caption": "Image",
+                    "required": true
+                }
+            ]
+        },
+        "categories": {
+            "child": "category",
+            "name": "Category",
+            "title": "name",
+            "description": "key",
+            "key": "key",
+            "fields": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "format": "single-line",
+                    "caption": "Name",
+                    "minLength": 2,
+                    "maxLength": 200,
+                    "required": true
+                },
+                {
+                    "key": "key",
+                    "type": "string",
+                    "format": "single-line",
+                    "caption": "Key",
+                    "required": true
+                }
+            ]
+        }
+    }
+}
