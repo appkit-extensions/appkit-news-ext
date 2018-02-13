@@ -1,6 +1,6 @@
 {
   "name": "appkit-news-ext",
-  "version": "0.0.5",
+  "version": "1.0.5",
   "description": "News",
   "engines": {
     "appkit": "^1.0.0"
@@ -20,6 +20,10 @@
             "categories": {
               "name": "Categories",
               "data": "categories"
+            },
+            "authors": {
+              "name": "Authors",
+              "data": "authors"
             }
           }
         },
