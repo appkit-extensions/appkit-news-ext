@@ -70,7 +70,7 @@
                 },
                 {
                     "key": "published",
-                    "type": "date",
+                    "type": "datetime",
                     "caption": "Published",
                     "required": true
                 },
@@ -129,8 +129,12 @@
             "name": "Authors",
             "title": "name",
             "thumb": "avatar",
-            "key": "key",
+            "key": "id",
             "fields": [
+                {
+                    "key": "id",
+                    "type": "id"
+                },
                 {
                     "key": "name",
                     "type": "string",
