@@ -55,10 +55,23 @@
                     "required": true
                 },
                 {
+                    "key": "author",
+                    "type": "select",
+                    "bind": "authors",
+                    "caption": "Author",
+                    "required": true
+                },
+                {
                     "key": "summary",
                     "type": "string",
                     "format": "multi-line",
                     "caption": "Summary",
+                    "required": true
+                },
+                {
+                    "key": "published",
+                    "type": "date",
+                    "caption": "Published",
                     "required": true
                 },
                 {
@@ -67,7 +80,7 @@
                     "format": "uri",
                     "caption": "Article URL",
                     "pattern": "^(https?|tel|sms|mail|itms)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]$",
-                    "required": true,
+                    "required": false,
                     "placeholder": "http://some.server.com"
                 },
                 {
@@ -75,6 +88,13 @@
                     "type": "fileref",
                     "format": "jpg, png, jpeg",
                     "caption": "Image",
+                    "required": true
+                },
+                {
+                    "key": "content",
+                    "type": "content",
+                    "format": "rtf",
+                    "caption": "Body",
                     "required": true
                 }
             ]
@@ -100,6 +120,31 @@
                     "type": "string",
                     "format": "single-line",
                     "caption": "Key",
+                    "required": true
+                }
+            ]
+        },
+        "authors": {
+            "child": "author",
+            "name": "Authors",
+            "title": "name",
+            "thumb": "avatar",
+            "key": "key",
+            "fields": [
+                {
+                    "key": "name",
+                    "type": "string",
+                    "format": "single-line",
+                    "caption": "Name",
+                    "minLength": 3,
+                    "maxLength": 50,
+                    "required": true
+                },
+                {
+                    "key": "avatar",
+                    "type": "fileref",
+                    "format": "jpg, png, jpeg",
+                    "caption": "Avatar",
                     "required": true
                 }
             ]
