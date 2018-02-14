@@ -103,8 +103,7 @@
             "child": "category",
             "name": "Category",
             "title": "name",
-            "description": "key",
-            "key": "key",
+            "key": "id",
             "fields": [
                 {
                     "key": "name",
@@ -116,11 +115,8 @@
                     "required": true
                 },
                 {
-                    "key": "key",
-                    "type": "string",
-                    "format": "single-line",
-                    "caption": "Key",
-                    "required": true
+                    "key": "id",
+                    "type": "id"
                 }
             ]
         },
