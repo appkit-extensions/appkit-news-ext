@@ -36,7 +36,7 @@
             "title": "title",
             "description": "summary",
             "tag":  "category",
-            "extra": "link",
+            "extra": "author",
             "fields": [
                 {
                     "key": "title",
