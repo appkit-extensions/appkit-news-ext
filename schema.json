@@ -9,7 +9,7 @@
                 "private": "",
                 "type": "String"
             },
-            "title": {
+            "no-result-message": {
                 "label": "No-Result Message",
                 "description": "Message shown if articles are not available or if the category filter returns no results.",
                 "default": "No articles found",
