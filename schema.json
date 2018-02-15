@@ -6,7 +6,6 @@
                 "description": "Title for this module.",
                 "group": "General",
                 "heading": "",
-                "private": "",
                 "type": "String"
             },
             "no-result-message": {
@@ -15,15 +14,33 @@
                 "default": "No articles found",
                 "group": "General",
                 "heading": "",
-                "private": "",
                 "type": "String"
+            },
+            "background-color": {
+                "label": "Background Color",
+                "description": "Color for background",
+                "default": "#ffffff",
+                "group": "General",
+                "heading": "Styles",
+                "type": "Color"
+            },
+            "layout": {
+                "label": "Layout",
+                "description": "The layout used to display the articles.",
+                "default": "tiled-images",
+                "values": [
+                    { key: "tiled-images", name: "Tiled images" }, 
+                    { key: "simple-no-images", name: "Simple with no images" }
+                ],
+                "group": "General",
+                "heading": "Styles",
+                "type": "Dropdown"
             },
             "enable-ui-override": {
                 "label": "Enable UI Override",
                 "description": "Override the default UI for this module",
                 "group": "Advanced",
                 "heading": "",
-                "private": "",
                 "type": "YesNo"
             },
             "enable-xml-editing": {
@@ -31,7 +48,6 @@
                 "description": "Show XML to allow advanced editing",
                 "group": "Advanced",
                 "heading": "",
-                "private": "",
                 "type": "YesNo"
             }
         },
