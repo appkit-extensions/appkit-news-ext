@@ -3,7 +3,16 @@
         "fields": {
             "title": {
                 "label": "Title",
-                "description": "Title for this module",
+                "description": "Title for this module.",
+                "group": "General",
+                "heading": "",
+                "private": "",
+                "type": "String"
+            },
+            "title": {
+                "label": "No-Result Message",
+                "description": "Message shown if articles are not available or if the category filter returns no results.",
+                "default": "No articles found",
                 "group": "General",
                 "heading": "",
                 "private": "",
