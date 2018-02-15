@@ -30,8 +30,8 @@
                 "description": "The layout used to display the articles.",
                 "default": "tiled-images",
                 "values": [
-                    { key: "tiled-images", name: "Tiled images" }, 
-                    { key: "simple-no-images", name: "Simple with no images" }
+                    { "key": "tiled-images", "name": "Tiled images" }, 
+                    { "key": "simple-no-images", "name": "Simple with no images" }
                 ],
                 "group": "General",
                 "heading": "Styles",
