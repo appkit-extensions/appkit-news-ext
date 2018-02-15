@@ -4,6 +4,7 @@
             "title": {
                 "label": "Title",
                 "description": "Title for this module.",
+                "default": "News",
                 "group": "General",
                 "heading": "",
                 "type": "String"
