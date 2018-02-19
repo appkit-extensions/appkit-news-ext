@@ -32,6 +32,9 @@
           "pages": {
             "start": "ui/pages/start.js"
           },
+          "components": {
+            "GreenButton": "ui/components/GreenButton.js"
+          },
           "module": "ui/module.js"
         }
       }
