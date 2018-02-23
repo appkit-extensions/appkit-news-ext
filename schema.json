@@ -151,6 +151,7 @@
             "name": "Authors",
             "title": "name",
             "thumb": "avatar",
+            "description": "bio",
             "key": "id",
             "fields": [
                 {
@@ -165,6 +166,13 @@
                     "minLength": 3,
                     "maxLength": 50,
                     "required": true
+                },
+                {
+                    "key": "bio",
+                    "type": "string",
+                    "format": "multi-line",
+                    "caption": "Bio",
+                    "required": false
                 },
                 {
                     "key": "avatar",
