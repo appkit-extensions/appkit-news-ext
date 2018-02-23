@@ -1,6 +1,6 @@
 {
   "name": "appkit-news-ext",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "News",
   "engines": {
     "appkit": "^1.0.0"
@@ -30,10 +30,18 @@
         "ui": {
           "initialPage":  "start",
           "pages": {
+            "article": "ui/pages/article.js",
+            "authors": "ui/pages/authors.js",
+            "profile": "ui/pages/profile.js",
             "start": "ui/pages/start.js"
           },
           "components": {
-            "GreenButton": "ui/components/GreenButton.js"
+            "AuthorCell": "ui/components/GreenButton.js",
+            "CustomCell": "ui/components/GreenButton.js",
+            "ItemCell": "ui/components/GreenButton.js",
+            "NewsBar": "ui/components/GreenButton.js",
+            "ProfileArticleCell": "ui/components/GreenButton.js",
+            "TileCell": "ui/components/GreenButton.js"
           },
           "module": "ui/module.js"
         }
