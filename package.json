@@ -36,12 +36,12 @@
             "start": "ui/pages/start.js"
           },
           "components": {
-            "AuthorCell": "ui/components/GreenButton.js",
-            "CustomCell": "ui/components/GreenButton.js",
-            "ItemCell": "ui/components/GreenButton.js",
-            "NewsBar": "ui/components/GreenButton.js",
-            "ProfileArticleCell": "ui/components/GreenButton.js",
-            "TileCell": "ui/components/GreenButton.js"
+            "AuthorCell": "ui/components/AuthorCell.js",
+            "CustomCell": "ui/components/CustomCell.js",
+            "ItemCell": "ui/components/ItemCell.js",
+            "NewsBar": "ui/components/NewsBar.js",
+            "ProfileArticleCell": "ui/components/ProfileArticleCell.js",
+            "TileCell": "ui/components/TileCell.js"
           },
           "module": "ui/module.js"
         }

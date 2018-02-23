@@ -31,7 +31,8 @@
                 "default": "tiled-images",
                 "values": [
                     { "key": "tiled-images", "name": "Tiled images" }, 
-                    { "key": "simple-no-images", "name": "Simple with no images" }
+                    { "key": "simple-no-images", "name": "Simple with no images" },
+                    { "key": "custom", "name": "Custom" }
                 ],
                 "group": "General",
                 "heading": "Styles",

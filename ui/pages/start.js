@@ -30,6 +30,9 @@
             else if (layout === 'tiled-images') {
                 return <TileCell item={item} key={i} onPress={() => Module.pages.open("article", item)} />
             }
+            else if (layout === 'custom') {
+                return <CustomCell item={item} key={i} onPress={() => Module.pages.open("article", item)} />
+            }
         });
 
         let content = this.state.articles.length > 0 && (
