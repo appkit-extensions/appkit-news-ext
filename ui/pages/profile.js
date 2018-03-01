@@ -41,6 +41,7 @@ export default class ProfilePage extends Component {
                 </Tile>
 
                 {bio}
+                <Divider />
                 {cells}
 
             </ScrollView>

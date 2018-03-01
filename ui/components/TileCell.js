@@ -5,7 +5,7 @@ export default class TileCell extends Component {
             <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.9}>
                 <Image banner full source={{ uri: item.image }} style={{ marginBottom: 8 }}>
                     <Tile bottom>
-                        <Tile shrink shade padding={10}>
+                        <Tile collapse shade padding={10}>
                             <Row>
                                 <Cell>
                                     <Heading left bright bolder upper>{item.title}</Heading>

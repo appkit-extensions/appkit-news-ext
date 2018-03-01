@@ -8,8 +8,8 @@ export default class ProfileArticleCell extends Component {
                         <Image square xxsmall source={{ uri: item.image }} />
                     </Cell>
                     <Cell>
-                        <Title left bolder upper>{item.title}</Title>
-                        <Text>{item.summary}</Text>
+                        <Text left bolder upper>{item.title}</Text>
+                        <Caption>{item.summary}</Caption>
                         <Status left subtle>{Module.timeSince(new Date(item.published)) + " ago by " + item.authorRef.name}</Status>
                     </Cell>
                 </Row>

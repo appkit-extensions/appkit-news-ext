@@ -16,8 +16,8 @@ export default class AuthorCell extends Component {
                         <Avatar medium rounded source={{ uri: item.avatar }} />
                     </Cell>
                     <Cell>
-                        <Title left bolder upper>{item.name}</Title>
-                        <Text>{bio}</Text>
+                        <Text left bolder upper>{item.name}</Text>
+                        <Caption>{bio}</Caption>
                     </Cell>
                 </Row>
                 <Divider full height={1} />
