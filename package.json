@@ -1,6 +1,6 @@
 {
   "name": "appkit-news-ext",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "News",
   "engines": {
     "appkit": "^1.0.0"

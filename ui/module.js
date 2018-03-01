@@ -1,6 +1,7 @@
 ﻿export default class NewsModule extends Module {
 
     articles = [];
+    latestArticle = null;
 
     async moduleWillLoad() {
 
@@ -12,6 +13,9 @@
             }).sort(function(a, b) {
                 return new Date(b.published) - new Date(a.published);
             });
+            if (this.articles.length > 0) {
+                this.latestArticle = this.articles[0];
+            }
         }
 
         // get key
