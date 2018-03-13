@@ -64,6 +64,7 @@
             "description": "summary",
             "tag":  "category",
             "extra": "author",
+            "sort": "-published",
             "fields": [
                 {
                     "key": "title",
