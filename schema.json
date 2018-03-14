@@ -38,6 +38,13 @@
                 "heading": "Styles",
                 "type": "Dropdown"
             },
+            "enable-live-updates": {
+                "label": "Enable Live Content Updates",
+                "description": "Content gets automatically published without manually publishing",
+                "group": "Advanced",
+                "heading": "",
+                "type": "YesNo"
+            },
             "enable-ui-override": {
                 "label": "Enable UI Override",
                 "description": "Override the default UI for this module",
