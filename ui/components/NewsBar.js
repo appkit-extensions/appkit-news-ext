@@ -11,7 +11,7 @@ export default class NewsBar extends Component {
                         <MenuOption onSelect={() => Module.selectCategory("")}>
                             <Text style={styles.menuOption}>{"All"}</Text>
                         </MenuOption>
-                        {Module.data.categories.map((cat, i) => {
+                        {Module.state.categories.map((cat, i) => {
                             return (
                                 <MenuOption key={i} onSelect={() => Module.selectCategory(cat.id)}>
                                     <Text style={styles.menuOption}>{cat.name}</Text>

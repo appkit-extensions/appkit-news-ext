@@ -19,17 +19,17 @@ export default class ArticlePage extends Component {
         let { item } = this.state;
         return (
             <ScrollView style={styles.container}>
-                <Image full banner source={{ uri: item.image }} />
+                <Image full banner source={{ uri: item.image.path }} />
                 <Tile bright>
                     <Row spacing={15}>
                         <Cell>
                             <Tile left>
                                 <Title upper bolder>{item.title}</Title>
-                                <Status>{Module.timeSince(new Date(item.published)) + " ago by " + item.authorRef.name}</Status>
+                                <Status>{Module.timeSince(item.published) + " ago by " + item.authorRef.name}</Status>
                             </Tile>
                         </Cell>
                         <Cell shrink>
-                            <Tile right><Avatar small rounded source={{ uri: item.authorRef.avatar }} onPress={() => Module.pages.open("profile", item.authorRef)} activeOpacity={0.7} />
+                            <Tile right><Avatar small rounded source={{ uri: item.authorRef.avatar.path }} onPress={() => Module.pages.open("profile", item.authorRef)} activeOpacity={0.7} />
                             </Tile>
                         </Cell>
                     </Row>

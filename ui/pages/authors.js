@@ -1,12 +1,11 @@
-// 'authors' page component
-export default class NewPage extends Component {
+export default class AuthorsPage extends Component {
 
     static pageOptions = {
         title: "Authors"
     };
 
 	render() {
-        const authors = Module.data.authors;
+        const authors = Module.state.authors;
 
         let cells = authors.map((item, i) => {
             return <AuthorCell item={item} key={i} onPress={() => Module.pages.open("profile", item)} />

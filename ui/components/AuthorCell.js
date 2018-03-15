@@ -13,7 +13,7 @@ export default class AuthorCell extends Component {
             <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.9}>
                 <Row spacing={10} style={{backgroundColor:'#fff'}}>
                     <Cell shrink>
-                        <Avatar medium rounded source={{ uri: item.avatar }} />
+                        <Avatar medium rounded source={{ uri: item.avatar.path }} />
                     </Cell>
                     <Cell>
                         <Text left bolder upper>{item.name}</Text>

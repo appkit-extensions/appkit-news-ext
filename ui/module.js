@@ -1,63 +1,64 @@
 ﻿export default class NewsModule extends Module {
 
-    articles = [];
-    latestArticle = null;
+    state = {
+        articles: undefined,
+        articlesUnfiltered: [],
+        categories: [],
+        authors: [],
+        latestArticle: null,
+        categoryId: '',
+        filterText: '',
+        dataError: null
+    }
 
-    async moduleWillLoad() {
+    async moduleDataDidUpdate(data, err) {
 
-        // populate our articles
-        if (this.data.articles) {
-            this.articles = this.data.articles.map(a => {
-                a.authorRef = this.findAuthor(a.author) || {};
-                return a;
-            }).sort(function(a, b) {
-                return new Date(b.published) - new Date(a.published);
-            });
-            if (this.articles.length > 0) {
-                this.latestArticle = this.articles[0];
-            }
-        }
+        // get category id
+        let id = await AsyncStorage.getItem('cat-id') || ''
 
-        // get key
-        let key = await AsyncStorage.getItem("cat-key");
-        if (key === null)
-            key = "";
+        // save latest article
+        const latest = data.articles.length ? data.articles[0] : null
+
+        // add data to state
+        this.setState({
+            categoryId: id,
+            articlesUnfiltered: data.articles,
+            categories: data.categories,
+            authors: data.authors,
+            latestArticle: latest,
+            dataError: err
+        })
 
         // set category
-        this.selectCategory(key);
+        this.selectCategory(this.state.categoryId);
     }
-
-    getInitialPageId() {
-        return 'start'; // this.options.get('layout')
-    }
-
+    
     selectCategory(id) {
-        let cat = this.data.categories.find(r => r.id == id);
+        let cat = this.state.categories.find(c => c.id === id)
         this.setState({
-            categoryKey: id,
+            categoryId: id,
             filterText: cat ? cat.name : "All",
-            articles: this.filterNewsByKey(id),
-            refreshing: false
+            articles: this.filterNewsByCategory(id)
         });
-        AsyncStorage.setItem("cat-key", id);
+        AsyncStorage.setItem("cat-id", id)
     }
 
-    filterNewsByKey(key) {
-        if (key == "")
-            return this.articles;
-        return this.articles.filter(n => n.category == key);
+    filterNewsByCategory(id) {
+        if (id == "")
+            return this.state.articlesUnfiltered
+        return this.state.articlesUnfiltered.filter(n => n.category == id)
     }
 
     findAuthor(id) {
-        return this.data.authors.find(a => a.id === id);
+        return this.state.authors.find(a => a.id === id)
     }
 
     findAuthorsArticles(id) {
-        return this.articles.filter(a => a.author === id);
+        return this.state.articles.filter(a => a.author === id)
     }
 
     get noResultMessage() {
-        return this.options.get("no-result-message", "No articles found");
+        return this.options.get("no-result-message", "No articles found")
     }
 
     timeSince(date) {

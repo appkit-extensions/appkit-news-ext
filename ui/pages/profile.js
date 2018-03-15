@@ -35,7 +35,7 @@ export default class ProfilePage extends Component {
         return (
             <ScrollView style={styles.container}>
                 <Tile padding={20}>
-                    <Avatar xlarge rounded source={{ uri: item.avatar }} onPress={() => { }} activeOpacity={0.7} />
+                    <Avatar xlarge rounded source={{ uri: item.avatar.path }} onPress={() => { }} activeOpacity={0.7} />
                     <Divider />
                     <Text bold>{item.name}</Text>
                 </Tile>
