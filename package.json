@@ -28,7 +28,7 @@
           }
         },
         "ui": {
-          "initialPage":  "start",
+          "initialPage": "start",
           "pages": {
             "article": "ui/pages/article.js",
             "authors": "ui/pages/authors.js",
@@ -54,6 +54,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
