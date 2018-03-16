@@ -7,6 +7,11 @@
     }
 
     moduleDidUpdate({articles, filterText, dataError}) {
+        if (dataError) {
+            Util.showError(dataError.message)
+            return
+        }
+
         if (articles === undefined) {
             return
         }
@@ -16,8 +21,6 @@
             filterText,
             refreshing: false
         });
-
-        dataError && Util.showError(dataError.message)
     }
 
     refresh() {

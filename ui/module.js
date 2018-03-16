@@ -13,6 +13,11 @@
 
     async moduleDataDidUpdate(data, err) {
 
+        if (err) {
+            this.setState({ dataError: err })
+            return
+        }
+
         // get category id
         let id = await AsyncStorage.getItem('cat-id') || ''
 
@@ -25,8 +30,7 @@
             articlesUnfiltered: data.articles,
             categories: data.categories,
             authors: data.authors,
-            latestArticle: latest,
-            dataError: err
+            latestArticle: latest
         })
 
         // set category
