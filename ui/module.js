@@ -17,7 +17,7 @@
         }
     }
 
-    async moduleDataWillUpdate() {
+    moduleDataWillUpdate() {
         return this.loadModuleContent(this.options.get('enable-live-updates', false))
     }
     
