@@ -23,9 +23,10 @@
         });
     }
 
-    refresh() {
+    async refresh() {
         this.setState({refreshing: true})
-        Module.updateData()
+        await Module.updateData()
+        this.setState({refreshing: false})
     }
 
     render() {

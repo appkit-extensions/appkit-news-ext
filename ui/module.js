@@ -11,6 +11,16 @@
         dataError: null
     }
 
+    moduleWillLoad() {
+        if (this.options.get('enable-live-updates', false)) {
+            this.dataUpdateFrequency = 60
+        }
+    }
+
+    async moduleDataWillUpdate() {
+        return this.loadModuleContent(this.options.get('enable-live-updates', false))
+    }
+    
     async moduleDataDidUpdate(data, err) {
 
         if (err) {
