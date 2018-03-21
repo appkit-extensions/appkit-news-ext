@@ -3,30 +3,23 @@
     state = {
         articles: [],
         filterText: "",
-        refreshing: true
+        refreshing: false
     }
 
-    moduleDidUpdate({articles, filterText, dataError}) {
-        if (dataError) {
-            Util.showError(dataError.message)
-            return
+    moduleDidUpdate({articles, filterText, refreshing, err}) {
+        if (err) {
+            Util.showError(err.message || err)
         }
 
-        if (articles === undefined) {
+        if (!articles) {
             return
         }
         
         this.setState({
             articles,
             filterText,
-            refreshing: false
+            refreshing,
         });
-    }
-
-    async refresh() {
-        this.setState({refreshing: true})
-        await Module.updateData()
-        this.setState({refreshing: false})
     }
 
     render() {
@@ -46,7 +39,7 @@
         })
 
         const refresh = Module.canUpdateData ? (
-            <RefreshControl refreshing={refreshing} onRefresh={() => this.refresh()} />
+            <RefreshControl refreshing={refreshing} onRefresh={() => Module.updateData()} />
         ) : null
 
         const content = articles.length > 0 && (

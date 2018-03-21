@@ -1,5 +1,7 @@
 ﻿export default class NewsModule extends Module {
 
+    live = false
+
     state = {
         articles: undefined,
         articlesUnfiltered: [],
@@ -8,23 +10,25 @@
         latestArticle: null,
         categoryId: '',
         filterText: '',
-        dataError: null
+        refreshing: false,
+        err: null
     }
 
     moduleWillLoad() {
-        if (this.options.get('enable-live-updates', false)) {
-            this.dataUpdateFrequency = 60
+        this.live = this.options.get('enable-live-updates', false)
+        if (this.live) {
+            this.dataUpdateFrequency = 60 * 5
         }
     }
 
-    moduleDataWillUpdate() {
-        return this.loadModuleContent(this.options.get('enable-live-updates', false))
+    moduleDataWillUpdate(fromCache) {
+        return this.loadModuleContent(this.live, fromCache)
     }
     
-    async moduleDataDidUpdate(data, err) {
+    async moduleDataDidUpdate(data, refreshing, err) {
 
         if (err) {
-            this.setState({ dataError: err })
+            this.setState({ refreshing, err })
             return
         }
 
@@ -40,7 +44,9 @@
             articlesUnfiltered: data.articles,
             categories: data.categories,
             authors: data.authors,
-            latestArticle: latest
+            latestArticle: latest,
+            err,
+            refreshing
         })
 
         // set category
