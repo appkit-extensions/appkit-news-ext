@@ -3,12 +3,12 @@
     live = false
 
     state = {
-        articles: undefined,
+        articles: [],
         articlesUnfiltered: [],
         categories: [],
         authors: [],
         latestArticle: null,
-        categoryId: '',
+        categoryId: null,
         filterText: '',
         refreshing: false,
         err: null
@@ -26,41 +26,42 @@
     }
     
     async moduleDataDidUpdate(data, refreshing, err) {
-
-        if (err) {
+        if (!data || err) {
             this.setState({ refreshing, err })
             return
         }
 
-        // get category id
-        let id = await AsyncStorage.getItem('cat-id') || ''
-
         // save latest article
-        const latest = data.articles.length ? data.articles[0] : null
+        const latest = data.articles && data.articles.length ? data.articles[0] : null
 
-        // add data to state
+        // update state
         this.setState({
-            categoryId: id,
-            articlesUnfiltered: data.articles,
-            categories: data.categories,
-            authors: data.authors,
+            articlesUnfiltered: data.articles || [],
+            categories: data.categories || [],
+            authors: data.authors || [],
             latestArticle: latest,
             err,
             refreshing
         })
 
+        // get category id
+        const id = await AsyncStorage.getItem('cat-id') || ''
+
         // set category
-        this.selectCategory(this.state.categoryId);
+        this.selectCategory(id);
     }
     
     selectCategory(id) {
-        let cat = this.state.categories.find(c => c.id === id)
-        this.setState({
-            categoryId: id,
-            filterText: cat ? cat.name : "All",
-            articles: this.filterNewsByCategory(id)
-        });
-        AsyncStorage.setItem("cat-id", id)
+        if (id !== this.state.categoryId) {
+            console.log(`id: ${id}`)
+            let cat = this.state.categories.find(c => c.id === id)
+            this.setState({
+                categoryId: id,
+                filterText: cat ? cat.name : "All",
+                articles: this.filterNewsByCategory(id)
+            });
+            AsyncStorage.setItem("cat-id", id)
+        }
     }
 
     filterNewsByCategory(id) {

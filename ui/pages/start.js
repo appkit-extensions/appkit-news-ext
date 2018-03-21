@@ -7,14 +7,11 @@
     }
 
     moduleDidUpdate({articles, filterText, refreshing, err}) {
+        
         if (err) {
             Util.showError(err.message || err)
         }
 
-        if (!articles) {
-            return
-        }
-        
         this.setState({
             articles,
             filterText,
