@@ -52,16 +52,13 @@
     }
     
     selectCategory(id) {
-        if (id !== this.state.categoryId) {
-            console.log(`id: ${id}`)
-            let cat = this.state.categories.find(c => c.id === id)
-            this.setState({
-                categoryId: id,
-                filterText: cat ? cat.name : "All",
-                articles: this.filterNewsByCategory(id)
-            });
-            AsyncStorage.setItem("cat-id", id)
-        }
+        let cat = this.state.categories.find(c => c.id === id)
+        this.setState({
+            categoryId: id,
+            filterText: cat ? cat.name : "All",
+            articles: this.filterNewsByCategory(id)
+        });
+        AsyncStorage.setItem("cat-id", id)
     }
 
     filterNewsByCategory(id) {
