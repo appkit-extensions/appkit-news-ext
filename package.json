@@ -23,7 +23,8 @@
             },
             "authors": {
               "name": "Authors",
-              "data": "authors"
+              "data": "authors",
+              "display": "grid"
             }
           }
         },
