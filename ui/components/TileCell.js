@@ -3,7 +3,7 @@ export default class TileCell extends Component {
         const { item } = this.props;
         return (
             <TouchableOpacity onPress={this.props.onPress} activeOpacity={0.9}>
-                <Image banner full source={{ uri: item.image.path }} style={{ marginBottom: 8 }}>
+                <ImageBackground banner full source={{ uri: item.image.path }} style={{ marginBottom: 8 }}>
                     <Tile bottom>
                         <Tile collapse shade padding={10}>
                             <Row>
@@ -17,7 +17,7 @@ export default class TileCell extends Component {
                             </Row>
                         </Tile>
                     </Tile>
-                </Image>
+                </ImageBackground>
             </TouchableOpacity>
         )
     }
