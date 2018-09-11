@@ -58,6 +58,13 @@
                 "group": "Advanced",
                 "heading": "",
                 "type": "YesNo"
+            },
+            "enable-editor-access": {
+                "label": "Show in Editing Area",
+                "description": "Allows this module's content to be edited in the Editing area",
+                "group": "Advanced",
+                "heading": "Content Editing",
+                "type": "YesNo"
             }
         },
         "groups": [ "General", "Advanced" ]
